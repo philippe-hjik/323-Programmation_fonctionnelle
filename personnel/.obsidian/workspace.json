@@ -1,0 +1,162 @@
+{
+  "main": {
+    "id": "8e2563abc9eb1eb7",
+    "type": "split",
+    "children": [
+      {
+        "id": "09d22a5ab44ad4fb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "999ae66bd2b631d3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "A retenir.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ec682a2c490f1f6a",
+    "type": "split",
+    "children": [
+      {
+        "id": "d1a182e51adbe570",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f07c5aa87929fd21",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "92fecf42bf2403c5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "db631ed02facf125",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "355800b57443f2fb",
+    "type": "split",
+    "children": [
+      {
+        "id": "4f135cfa0f10d3a7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a4bec47befb5c0be",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "A retenir.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3f7609b873e7638b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "A retenir.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "cdfaf3c18975dffe",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "d5c8dc61644c9591",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "A retenir.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Ouvrir le sélecteur rapide": false,
+      "graph:Ouvrir la vue graphique": false,
+      "canvas:Créer une nouvelle toile": false,
+      "daily-notes:Ouvrir la note quotidienne": false,
+      "templates:Insérer le modèle": false,
+      "command-palette:Ouvrir la palette de commandes": false
+    }
+  },
+  "active": "999ae66bd2b631d3",
+  "lastOpenFiles": [
+    "marché/corrigé/ConsoleApp2/Program.cs",
+    "marché/corrigé/ConsoleApp2/Product.cs",
+    "marché/corrigé/ConsoleApp2/ConsoleApp2.csproj",
+    "marché/corrigé/ConsoleApp2.sln",
+    "marché/corrigé/ConsoleApp2",
+    "marché/Place du marché.xlsx",
+    "marché/enoncé.md",
+    "marché/corrigé",
+    "marché",
+    "A retenir.md"
+  ]
+}
