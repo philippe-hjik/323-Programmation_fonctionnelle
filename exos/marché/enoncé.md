@@ -13,7 +13,7 @@ Ce classeur contient deux onglets
 
 Utilisez les connaissances acquises l'année passée en programmation pour créer un programme en mode console qui donne les réponses aux questions suivantes :
 
-1. Combien y a-t-il de kilos de pêche en vente dans ce marché ?
+1. Combien y a-t-il de vendeurs de pêche dans ce marché ?
 2. Quel producteur a le plus de pastèques à vendre ? Où est-il ? Combien en a-t-il ?
 
 ### DoD
