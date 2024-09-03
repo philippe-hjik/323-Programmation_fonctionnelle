@@ -54,7 +54,7 @@ void F(Func<int, int, double> x)
 }
 ```
 
-> Derrière les décors, Action est une sorte de un Func<...,void>
+> Derrière les décors, Action est une sorte de Func<...,void>
 
 #### Avec valeur de retour pour la fonction de base et son paramètre:
 
@@ -68,7 +68,8 @@ int F(Func<int, int, int> x)
 #### Exemple d’utilisation de `Func` pour multiplier des nombres
 
 ```csharp
-Func<int, int> myFunc = x => x * 2;
+int x2(int x) { return x + x }
+Func<int, int> myFunc = x2;
 int result = myFunc(5); // Retourne 10
 ```
 
@@ -227,22 +228,18 @@ names.ForEach(myAction); // Affichera les noms dans la console
 
 ```csharp
 List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
-Func<int, bool> myFunc = x => x % 2 == 0;
-numbers.Where(myFunc).ToList(); // Retourne la liste des nombres pairs
+Func<int, bool> isEven = x => x % 2 == 0;
+Func<int, bool> isBig = x => x  > 2;
+numbers.Where(isEven).ToList(); // Retourne la liste des nombres pairs (2,4)
+numbers.Where(isBig).ToList();  // Retourne la liste des "grands" nombre (3,4,5)
 ```
-#### 3. Utilisation de `Func` pour créer une fonction qui retourne une fonction
-
-```csharp
-List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
-Func<int, Func<int, bool>> myFunc = x => y => x + y > 5;
-numbers.Where(myFunc).ToList(); // Retourne la liste des nombres supérieurs à 5
-```
+On relèvera le fait que la méthode qui effectue l'action de filtrage est la même dans les deux cas: `Where`
 
 ## Conclusion
 
 **Action** et **Func** sont donc 2 nouveaux *types* à connaître et maîtriser en C# afin de tirer le maximum de la programmation fonctionnelle et de comprendre ses mécanismes sous-jacents.
 
-La notion de fonction anonyme noméée `lambda` avec son opérateur `=>` est aussi un élément clé de l’integration de la programmation fonctionnelle avec C#.
+La notion de fonction anonyme nomée `lambda` avec son opérateur `=>` est aussi un élément clé de l’integration de la programmation fonctionnelle avec C#.
 
 De manière générale, les fonctions d'ordre supérieur sont un concept important en programmation qui peut sembler complexe au début, mais qui offre de nombreux avantages. En comprenant les fonctions d'ordre supérieur, vous pouvez créer des programmes plus flexibles, plus réutilisables et plus simples.
 
