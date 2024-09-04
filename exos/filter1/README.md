@@ -1,7 +1,9 @@
 # Pratique de `filter`
 Créer un nouveau dossier dans le dossier personnel pour stocker les solutions de l'exercice.
 
-## 1. Jouer avec les mots [max 45min. pour la V1]
+## 1. Jouer avec les mots
+
+### Partie 1 : Filtrage simple
 Selon une liste de mots, afficher les éléments qui
  - ne contiennent pas la lettre `x`
  - ont 4 caractères ou plus
@@ -13,21 +15,22 @@ string[] words = { "bonjour", "hello", "monde", "vert", "rouge", "bleu", "jaune"
 
 > Si possible, utiliser des lambdas
 
-### Version 2: Epsilon [pour avancés]
+### Partie 2: Epsilon
+
 Trouver une source fiable sur la répartition des lettres en français (A:8.15%, B:0.97%,...) et afficher les mots avec leur valeur Epsilon et **uniquement ceux dont la valeur Epsilon est comprise entre 0.5 et 0.95**. 
 
-*La valeur Epsilon correspond à la somme des probabilités pourcentage=probabilité\*100) d'apparation de chaque lettre d'un mot si les
- lettres sont toute différentes. En cas de lettre présente 2x dans le mots, 
- par exemple, la probabilité est divisée par le nombre de lettres*
+*La valeur Epsilon correspond à la somme des probabilités pourcentage=probabilité\*100) d'apparation de chaque lettre d'un mot si les lettres sont toute différentes. En cas de lettre présente 2x dans le mots, par exemple, la probabilité est divisée par le nombre de lettres*
 
 #### Exemple de calcul pour Epsilon
 
 |Source|Epsilon|
 | :-- | :-------------- |
-| ABA | 0.0815/2 + 0.97 |
+| ABA | 0.0815/2 + 0.0097 |
 
-### Version 3: comme en anglais [pour avancés]
-Filtrer désormais dynamiquement les mots qui s'écrivent de la même manière en français et en anglais ([proposition de source de dictionnaire](https://github.com/hbenbel/French-Dictionary)) avec cette liste source:
+> Si vous ne savez pas par quel bout prendre ce problème, regardez [ça](steps.md).
+
+### Partie 3: Dictionnaire
+Filtrer désormais dynamiquement les mots qui s'écrivent de la même manière en français et en anglais avec cette liste source:
 
 ```csharp
 List<string> frenchWords = new List<string>() {

@@ -64,13 +64,15 @@ numbers.Where(n => {
 });
 ```
 
-## Avantages
+## Avantages et inconvénients
 
 La fonction filter offre plusieurs avantages, notamment :
 
 * **Flexibilité** : La fonction filter permet de créer des filtres complexes en utilisant des conditions logiques et des fonctions.
 * **Réutilisation** : La fonction filter peut être utilisée avec différentes collections et conditions.
 * **Simplification** : La fonction filter peut simplifier le code en permettant de regrouper des opérations complexes en une seule fonction.
+
+En contrepartie, elle a l’inconvénient de pouvoir être plus difficile à relire lorsqu’on revient à froid sur le projet...
 
 ## Comparaison avec le javascript
 En javascript, le concept de *filter* s’appelle même du même nom...
