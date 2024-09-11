@@ -19,7 +19,7 @@ string[] words = { "bonjour", "hello", "monde", "vert", "rouge", "bleu", "jaune"
 
 Trouver une source fiable sur la répartition des lettres en français (A:8.15%, B:0.97%,...) et afficher les mots avec leur valeur Epsilon et **uniquement ceux dont la valeur Epsilon est comprise entre 0.5 et 0.95**. 
 
-*La valeur Epsilon correspond à la somme des probabilités pourcentage=probabilité\*100) d'apparation de chaque lettre d'un mot si les lettres sont toute différentes. En cas de lettre présente 2x dans le mots, par exemple, la probabilité est divisée par le nombre de lettres*
+*La valeur Epsilon correspond à la somme des probabilités (pourcentage=probabilité\*100) d'apparation de chaque lettre d'un mot si les lettres sont toute différentes. En cas de lettre présente 2x dans le mots, par exemple, la probabilité est divisée par le nombre de lettres*
 
 #### Exemple de calcul pour Epsilon
 
