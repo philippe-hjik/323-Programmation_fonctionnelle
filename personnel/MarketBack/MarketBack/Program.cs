@@ -124,11 +124,25 @@ var result = products.Select(i => (i.Producer, i18n[i.ProductName], i.Quantity *
     .Select(group => new
     {
         Key = group.Key, // Nom du produit
-        Value = group.Sum(i => i.Item3) // Somme des quantités
+        Value = group.Sum(i => i.Item3), // Somme des quantités
     });
 
+// Statistiques des chiffres d'affaires
+var maxCA = result.Max(i => i.Value);
+var minCA = result.Min(i => i.Value);
+var averageCA = result.Average(i => i.Value);
+
+// chat gpt mais simplifié
+var marchandAvecPlusDeNoix = products
+    .Where(p => p.ProductName == "Noix")
+    .OrderByDescending(p => p.Quantity)
+    .FirstOrDefault();
+
+// chatgpt
+var marchandAvecPlusDAffinites = products
+    .GroupBy(p => p.Producer)
+    .Select(g => new { Producer = g.Key, AffinityCount = g.Count() })
+    .OrderByDescending(g => g.AffinityCount)
+    .FirstOrDefault();
+
 Console.WriteLine();
-
-
-Console.WriteLine();
-
