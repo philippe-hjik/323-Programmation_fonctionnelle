@@ -119,14 +119,16 @@ Console.WriteLine($"Données exportées vers {csvFilePath}");
 
 */
 
-var result = products
-    .GroupBy(i => i18n[i.ProductName]) // Grouper par le nom du produit
+var result = products.Select(i => (i.Producer, i18n[i.ProductName], i.Quantity * i.PricePerUnit))
+    .GroupBy(i => i.Producer) // Grouper par le nom du produit
     .Select(group => new
     {
         Key = group.Key, // Nom du produit
-        Value = group.Sum(i => i.Quantity) // Somme des quantités
-    })
-    .Where(name => name.Key == "Berries");
+        Value = group.Sum(i => i.Item3) // Somme des quantités
+    });
+
+Console.WriteLine();
+
 
 Console.WriteLine();
 
