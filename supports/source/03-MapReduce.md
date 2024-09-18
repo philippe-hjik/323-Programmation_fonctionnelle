@@ -44,7 +44,9 @@ IEnumerable<int> numberOfSiblings = cid5d.Select(person => person.Sisters+person
 
 Cette foi-ci, on génère un nouvel ensemble de valeurs modifiées selon l'ensemble de base...
 
-### Tuple
+### Tuple et classe anonyme
+
+#### Tuple
 Pour récupérer un sous-ensemble d'attributs d'une classe, le tuple peut s'avérer utile:
 
 ```csharp
@@ -55,7 +57,7 @@ var adults =
     Console.WriteLine(adults.First().Item1); //Lucie
 ```
 
-> Le `Tuple` est une sorte de classe anonyme pouvant supporter n attributs qu'on accède avec les propriétés Item1, Item2, Item3, ItemN un peu comme avec un tableau...
+> Le `Tuple` ressemble à une classe anonyme pouvant supporter n attributs *readonly* qu'on accède avec les propriétés Item1, Item2, Item3, ItemN un peu comme avec un tableau...
 
 ```csharp
 var tuple = (1,2,3);
@@ -63,6 +65,31 @@ Console.WriteLine(tuple.Item1);//1
 Console.WriteLine(tuple.Item2);//2
 Console.WriteLine(tuple.Item3);//3
 ```
+
+> Il est possible de nommer les attributs d'un tuple
+```csharp
+var tuple = (first: 1, second: 2,third: 3);
+Console.WriteLine(tuple.first);//1
+Console.WriteLine(tuple.second);//2
+Console.WriteLine(tuple.third);//3
+```
+
+> ATTENTION toutefois car un `ToList()` fera disparaître cette information...
+
+#### Classe anonyme
+À défaut du tuple, il est aussi possible de générer une classe anonyme qui gardera ses informations sur toute la chaîne d’appel LINQ:
+
+```csharp
+var anon = new {first= 1, second= 2,third= 3};
+Console.WriteLine(anon.first);//1
+Console.WriteLine(anon.second);//2
+Console.WriteLine(anon.third);//3
+```
+
+#### En détail
+Pour plus de détail, consulter [la documentation officielle](https://learn.microsoft.com/en-us/dotnet/standard/base-types/choosing-between-anonymous-and-tuple)
+
+![Alt text](tuple.png)
 
 ### Transformeurs communs
 LINQ propose quelques transformeurs utiles:
@@ -101,6 +128,11 @@ Person toto = people.Where(p => p.Id == 712).First();
 Si vous en doutez, essayez [ceci](../../assets/SearchSpeed/)...
 
 Il est temps d'aborder maintenant les accumulateurs...
+
+
+### Exemple étranges
+
+![Alt text](oddT.png)
 
 ## Accumulateur | Aggrégateur | Reduce
 
@@ -177,7 +209,7 @@ Pour des types non primitifs, on doit utiliser une signature plus complète avec
 - Choix de la forme du résultat
 
 ```csharp
-string min = cid5d.Aggregate(
+var min = cid5d.Aggregate(
     new Person(){Brothers=99}, //Seed
     (a,b)=>a.Brothers<b.Brothers?a:b, //Min logic
     person=>person.Name); //Result transformer
