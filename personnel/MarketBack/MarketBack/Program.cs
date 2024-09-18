@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Reflection.Metadata;
 using MarketBack;
 
 List<Product> products = new List<Product>
@@ -96,7 +97,7 @@ var i18n = new Dictionary<string, string>()
     { "Haricots","Beans"}
 };
 
-var tst = products.Select(i => ($"{i.Producer.Substring(0, 3)}...{i.Producer.Last()}", i18n[i.ProductName], i.Quantity * i.PricePerUnit)).ToList();
+/*var tst = products.Select(i => ($"{i.Producer.Substring(0, 3)}...{i.Producer.Last()}", i18n[i.ProductName], i.Quantity * i.PricePerUnit)).ToList();
 
 // Chemin du fichier CSV
 string csvFilePath = @"C:\Users\pf25xeu\Desktop\products.csv";
@@ -115,16 +116,17 @@ using (var writer = new StreamWriter(csvFilePath))
 
 Console.WriteLine($"Données exportées vers {csvFilePath}");
 
-/*CA global
-var tst = products.Select(i => ($"{i.Producer[0]}{i.Producer[1]}{i.Producer[2]}...{i.Producer.Last()}", i.Quantity, i.PricePerUnit, i18n[i.ProductName]))
-    .GroupBy(
-    product => product.Item1,
-    products => products.PricePerUnit * products.Quantity,
-    (anonyme, CA) => new
+
+*/
+
+var result = products
+    .GroupBy(i => i18n[i.ProductName]) // Grouper par le nom du produit
+    .Select(group => new
     {
-        Key = anonyme,
-        Value = CA.Aggregate((a, b) => a + b)
-    });
+        Key = group.Key, // Nom du produit
+        Value = group.Sum(i => i.Quantity) // Somme des quantités
+    })
+    .Where(name => name.Key == "Berries");
 
 Console.WriteLine();
-*/
+
