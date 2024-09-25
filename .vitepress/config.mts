@@ -22,43 +22,33 @@ export default defineConfig({
       {
         text: 'Supports',
         collapsed : true,
-        items: glob.sync('supports/**/*.md')
+        items: glob.sync('supports/**/*.md',{posix:true})
           .map(f => '/' + f)
-          .map((file) => ({ text: `${path.basename(file)}`, link: `${file}` })).reverse()
+          .map((file) => ({ text: `${path.basename(file).replace(".md","")}`, link: `${file}` })).reverse()
       }
       ,
-      //todo : dynamic
       {
         text: 'Exos',
         collapsed : true,
-        items: 
-        [
-          { text: "marché", link: "/exos/marché/enoncé" },
-          { text: "filter1", link: "/exos/filter1/" },
-          { text: "market-is-back", link: "/exos/market-is-back/" },
-          { text: "rando", link: "/exos/rando/" },
-          { text: "silkroad", link: "/exos/silkroad/" },
-        ]
+        items: glob.sync(['exos/*/README.md','exos/*/enoncé.md'],{posix:true})
+          .map(f => '/' + f)
+          .map((file) => ({ text: `${file.split("/")[2]}`, link: `${file.replace("README","index")}` })).reverse()
       }
+      
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/ETML-INF' }
+      { icon: 'github', link: '{REPO_URL}' }
     ],
     search: {
       provider: 'local'
     }
   },
   ignoreDeadLinks: true,
-  base: "/{REPO}/",//for gh pages
+  base: "/323-Programmation_fonctionnelle/",//for gh pages
   
   rewrites: {
     'README.md': 'index.md',
-    '(.*)/README.md': '(.*)/index.md'
+    '(.*)/README.md': '(.*)/index.md',
   },
-  //disable next/previous
-  transformPageData(pageData) {
-    //pageData.frontmatter.next ??= false;
-    pageData.frontmatter.previous ??= false;
-  }
 })
