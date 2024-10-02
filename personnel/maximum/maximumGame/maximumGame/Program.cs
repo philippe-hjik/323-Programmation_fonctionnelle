@@ -1,34 +1,61 @@
-﻿// 4 players
-List<Player> players = new List<Player>()
+﻿using System;
+using System.Threading;
+
+class Program
 {
-    new Player("Joe", 32),
-    new Player("Jack", 30),
-    new Player("William", 37),
-    new Player("Averell", 25)
-};
+    static int linesOfCode = 9210;
+    static Random random = new Random();
 
-List<Player> playersOrder = players.OrderByDescending(i => i.Age).ToList();
-
-// Initialize search
-Player elder = players.First();
-int biggestAge = elder.Age;
-
-Console.WriteLine($"Le plus agé est {elder.Name} qui a {elder.Age} ans");
-
-Console.ReadKey();
-
-public class Player
-{
-    private readonly string _name;
-    private readonly int _age;
-
-    public Player(string name, int age)
+    static void Main(string[] args)
     {
-        _name = name;
-        _age = age;
+        Console.WriteLine($"Opening shop with {linesOfCode} lines in our program");
+        Thread thread1 = new Thread(Bob);
+        Thread thread2 = new Thread(Alice);
+
+        // Start both threads
+        thread1.Start();
+        Thread.Sleep(300); // Alice starts her day a bit later
+        thread2.Start();
+
+        // Wait until both threads terminate
+        thread1.Join();
+        thread2.Join();
+
+        Console.WriteLine($"Closing shop with {linesOfCode} lines in our program");
+        Console.ReadLine();
     }
 
-    public string Name => _name;
+    static void Bob()
+    {
+        int myLineCounter = 0; // Bob starts working
+        int workingHours = 0;
 
-    public int Age => _age;
+        while (workingHours < 9) // He has a 9-hours day ahead of him
+        {
+            Thread.Sleep(1000); // Bob works for "1 hour"
+            workingHours++;
+            int BobProduction = 1;
+            Console.WriteLine($"Bob commits {BobProduction} lines of code.");
+            myLineCounter += BobProduction;
+        }
+        linesOfCode += myLineCounter; // he turns his work in
+        Console.WriteLine($"Bob checks out, he claims the program has now {linesOfCode} lines");
+    }
+
+    // Method to be executed by thread2 - increments by 2 every 3 seconds
+    static void Alice()
+    {
+        int myLineCounter = 0; // Alice starts working
+        int workingHours = 0;
+        while (workingHours < 7) // She has a 7-hours day ahead of her
+        {
+            Thread.Sleep(1000); // Alice works for "1 hour"
+            workingHours++;
+            int AliceProduction = 5;
+            Console.WriteLine($"Alice commits {AliceProduction} lines of code.");
+            myLineCounter += AliceProduction;
+        }
+        linesOfCode += myLineCounter; // she turns her work in
+        Console.WriteLine($"Alice checks out, she claims the program has now {linesOfCode} lines");
+    }
 }
