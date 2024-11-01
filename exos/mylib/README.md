@@ -32,6 +32,9 @@ bool randomBool = random.RandomBool();
 Console.WriteLine($"Booléen aléatoire: {randomBool}");
 ```
 
+Exemple d’exécution :
+![mylib.png](mylib.png)
+
 <details>
 <summary>Aide pour commencer</summary>
 

@@ -116,8 +116,7 @@ public static IEnumerable<...> Map<TSource,TTarget> (this ..., Func<TSourc,TTarg
 ## Reduce 🥿
 
 Pas très original et toutefois intéressant pour le *drill*, il est temps de refaire un `Aggregate` nommé `Reduce` et
-ceci
-, bien sêr, **sans** réutiliser le `Aggregate` de `Linq`...
+ceci, bien sûr, **sans** réutiliser le `Aggregate` de `Linq`...
 
 ```csharp
 public static ... Reduce ...
@@ -368,7 +367,7 @@ public static TSource Mode<TSource>(this IEnumerable<TSource> source)
 
 ### 3. **`ToDictionarySafely` : Convertir en dictionnaire avec gestion des clés en double**
 
-La méthode `ToDictionary` lève une exception si des doublons sont détectés dans les clés. Vous pourriez avoir besoin
+La méthode `ToDictionary` lève une exception si des doublons sont détectés dans les clés. On pourrait avoir besoin
 d'une méthode qui ignore ou gère les doublons proprement, soit en choisissant la première ou la dernière occurrence.
 
 #### Signature
